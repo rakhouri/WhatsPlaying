@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/WhatsPlaying/static/css/main.a204d21e.css",
+    "main.js": "/WhatsPlaying/static/js/main.449868b6.js",
+    "index.html": "/WhatsPlaying/index.html",
+    "main.a204d21e.css.map": "/WhatsPlaying/static/css/main.a204d21e.css.map",
+    "main.449868b6.js.map": "/WhatsPlaying/static/js/main.449868b6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a204d21e.css",
+    "static/js/main.449868b6.js"
+  ]
+}
