@@ -1,5 +1,6 @@
 {
   "name": "hackathon",
+  "homepage": "rakhour.github.io/WhatsPlaying"
   "version": "0.1.0",
   "private": true,
   "dependencies": {
