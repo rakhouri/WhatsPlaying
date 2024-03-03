@@ -75,13 +75,22 @@ const Lead = () => {
   };
 
   const renderArtist = () => {
-    return artists.map((artist, index) => (
-      <div className="output" key={index}>
-        <h2>{artist}</h2>
-        <h2>{tracks[index]}</h2>
-        <h2>{genres[index]}</h2>
-      </div>
-    ));
+
+    const artistNames = artists.map((artist) => <h1>{artist}</h1>);
+    const trackNames = tracks.map((track) => <h1>{track}</h1>);
+    const genreNames = genres.map((genre) => <h1>{genre}</h1>)
+    
+    if (artistNames.length > 0) {
+      return (
+        <>
+        <div className="output">
+          {artistNames}
+          {trackNames}
+          {genreNames}
+        </div>
+        </>
+      );
+    }
   };
 
   // const renderArtists = () => {

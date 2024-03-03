@@ -13,8 +13,6 @@ function App() {
     <Router>
       <Routes>
       {/* <Route path="/" element={<Script />} /> */}
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/lead" element={<Lead />} />
       </Routes>
     </Router>
