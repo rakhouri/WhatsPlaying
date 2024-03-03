@@ -4,11 +4,7 @@ import "../css/Login.css";
 
 const Lead = () => {
   const clientid = "909daba4eb0b4c8e8978c71d3cc3685f";
-<<<<<<< HEAD:src/pages/Lead.js
   const redirect_uri = "http://rakhouri.github.io/WhatsPlaying";
-=======
-  const redirect_uri = "http://localhost:3000/";
->>>>>>> edc9680391b4673a76816acf0a2f778071984819:final/src/pages/Lead.js
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
   const RESPONSE_TYPE = "token";
 
