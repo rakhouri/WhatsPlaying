@@ -13,7 +13,7 @@ function App() {
     <Router>
       <Routes>
       {/* <Route path="/" element={<Script />} /> */}
-        <Route path="/lead" element={<Lead />} />
+        <Route path="/" element={<Lead />} />
       </Routes>
     </Router>
   </div>

@@ -99,14 +99,46 @@
     margin-bottom: 20px; /* Add margin between each set of data */
 
 .output {
-  position: center;
+    justify-content: center;
+    font-size: 11.7px;
+  position: relative;
   text-align: center;
-  width: 420px;
+  width: 450px;
   background: purple;
   border: 2px solid;
   color: orange;
   border-radius: 10px;
   padding: 30px 40px;
+  left: 25px;
+  top: -450px;
+  box-shadow: 0 0 10px rgb(212, 104, 4);
+}
+.top {
+    top: 400px;
+    position: relative;
+    justify-content: center;
+    left: 350px;
+    margin-left: 185px;
+    /* font-family: 'Open Sans', sans-serif; */
+    color: white;
+    padding: 9px 150px;
+    font-size: 48px;
+    border: 0.9px solid black; 
+    border-radius: 5px;
+    cursor: pointer; 
+    background-color: #522D80;
+    transition: background-color 0.3s ease;
+    top: 150px;
+    /* margin-top: 1000px; */
+}
+
+.topimage {
+    border-radius: 5px;
+    position: relative;
+    right: 50px;
+    top: 50px;
+    max-width: 450px;
+    max-height: 450px;
 }
 
 /* JSX:
@@ -119,3 +151,37 @@
 .register-link p a:hover {
   text-decoration: underline;
 }
+.logbutton  {
+    margin-left: 185px;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 0.9px solid black; 
+  border-radius: 5px;
+  cursor: pointer; 
+  background-color: #522D80;
+  transition: background-color 0.3s ease;
+}
+
+.Cheese {
+    font-size: 32px;
+    font-style: italic;
+}
+
+
+.logbutton:hover {
+    cursor: pointer;
+    background-color: #633899;
+}
+
+.top:hover {
+    cursor: pointer;
+    background-color: #633899;
+}
+
+body {
+    background-image: url(../img/background.png);
+
+}
+
