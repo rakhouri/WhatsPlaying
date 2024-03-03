@@ -1,23 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../css/Login.css";
-import { Formik, Field, Form } from "formik";
-import * as Yup from "yup";
-
-const LoginSchema = Yup.object().shape({
-  email: Yup.string().label("Email").required().min(5).max(30),
-  password: Yup.string().label("Password").required().min(5).max(30),
-});
 
 const Lead = () => {
   const clientid = "909daba4eb0b4c8e8978c71d3cc3685f";
-  const redirect_uri = "http://localhost:3000";
+  const redirect_uri = "http://localhost:3000/lead";
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
   const RESPONSE_TYPE = "token";
 
   const [token, setToken] = useState("");
-  const [artist, setArtist] = useState("");
-  const [genre, setGenre] = useState("");
+  const [artists, setArtists] = useState([]);
+  const [genres, setGenres] = useState([]);
+  const [tracks, setTracks] = useState([]);
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -43,7 +37,7 @@ const Lead = () => {
     window.localStorage.removeItem("token");
   };
 
-  const searchTop = async (e) => {
+  const searchArtists = async (e) => {
     e.preventDefault();
     const { data } = await axios.get(
       "https://api.spotify.com/v1/me/top/artists",
@@ -54,18 +48,40 @@ const Lead = () => {
       }
     );
 
-    console.log(data.items[0]);
-    setArtist(data.items[0].name);
-    setGenre(data.items[0].genres[0]);
+    const topArtists = data.items.slice(0, 5); // Get the top 3 artists
+    const artistNames = topArtists.map((artist) => artist.name); // Extract artist names
+    const artistGenres = topArtists.map((artist) => artist.genres[0]); // Extract genres
+
+    searchTracks();
+    setArtists(artistNames);
+    setGenres(artistGenres);
+  };
+
+  const searchTracks = async () => {
+    const { data } = await axios.get(
+      "https://api.spotify.com/v1/me/top/tracks",
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    console.log(data.items[0].name);
+    const topTracks = data.items.slice(0, 5); // Get the top 3 artists
+    const trackNames = topTracks.map((track) => track.name); // Extract artist names
+
+    setTracks(trackNames);
   };
 
   const renderArtist = () => {
-    return (
-      <div>
+    return artists.map((artist, index) => (
+      <div className="output" key={index}>
         <h2>{artist}</h2>
-        <h2>{genre}</h2>
+        <h2>{tracks[index]}</h2>
+        <h2>{genres[index]}</h2>
       </div>
-    );
+    ));
   };
 
   // const renderArtists = () => {
@@ -84,42 +100,32 @@ const Lead = () => {
   return (
     <>
       <div>
-        <div class="login-body">
-          <Formik
-            initialValues={{
-              email: "",
-              password: "",
-            }}
-            validationSchema={LoginSchema}
-            onSubmit={(values) => {
-              // same shape as initial values
-              console.log(values);
-            }}
-          >
-            {({ errors, touched }) => (
+        {!token ? (
+          <>
+            <div class="login-body">
               <div class="wrapper">
-                <Form>
-                  <h1>Login</h1>
-                  {!token ? (
-                    <button
-                      href={`${AUTH_ENDPOINT}?client_id=${clientid}&redirect_uri=${redirect_uri}&response_type=${RESPONSE_TYPE}&scope=user-top-read`}
-                    >
-                      Login to Spotify
-                    </button>
-                  ) : (
-                    <button className="button" onClick={logout}>
-                      Logout
-                    </button>
-                  )}
-                  {/* <button onClick={searchTop}>Get Top</button>
-                  {renderArtist()} */}
-                </Form>
+                <h1>Login:</h1>
+                <button
+                  className="button"
+                  onClick={() =>
+                    (window.location.href = `${AUTH_ENDPOINT}?client_id=${clientid}&redirect_uri=${redirect_uri}&response_type=${RESPONSE_TYPE}&scope=user-top-read`)
+                  }
+                >
+                  Login to Spotify
+                </button>
               </div>
-            )}
-          </Formik>
-        </div>
+            </div>
+          </>
+        ) : (
+          <button className="logbutton" onClick={logout}>
+            Logout
+          </button>
+        )}
+        <button className='top'onClick={searchArtists}>Get Top</button>
+        {renderArtist()}
       </div>
     </>
   );
 };
+
 export default Lead;

@@ -21,7 +21,7 @@
     width: 420px;
     background: transparent;
     border: 2px solid;
-    color: #fff;
+    color: white;
     border-radius: 10px;
     padding: 30px 40px;
 }
@@ -37,6 +37,14 @@
     height: 50px;
     margin: 30px 0;
 }
+
+
+.logbutton {
+    position: absolute;
+    top: 20px; /* Adjust top position as needed */
+    right: 20px; /* Adjust right position as needed */
+    padding: 10px; /* Add padding as needed */
+  }
 
 .input-box input {
     width: 100%;
@@ -83,11 +91,25 @@
     margin: 20px 0 15px;
 }
 
+.output {
+    position: relative;
+    left: 175px;
+    margin-top: 20px;
+   font-size: 13px;
+    justify-content: center;
+    margin-bottom: 20px; /* Add margin between each set of data */
+ }
+
+
+
+
+
+/* JSX:
 .register-link p a {
     color: #fff;
     text-decoration: none;
     font-weight: 600;
-}
+} */
 
 .register-link p a:hover {
     text-decoration: underline;

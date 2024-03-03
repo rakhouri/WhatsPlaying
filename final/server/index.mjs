@@ -2,9 +2,9 @@ import express from "express";
 import cors from "cors";
 import "./loadEnvironment.mjs";
 import "express-async-errors";
-import posts from "./routes/posts.mjs";
+import users from "./routes/users.mjs";
 
-const PORT = process.env.PORT || 5050;
+const PORT = 5050;
 const app = express();
 
 app.use(cors());
