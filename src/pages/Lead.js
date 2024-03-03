@@ -4,11 +4,16 @@ import "../css/Login.css";
 
 const Lead = () => {
   const clientid = "909daba4eb0b4c8e8978c71d3cc3685f";
+<<<<<<< HEAD:src/pages/Lead.js
   const redirect_uri = "http://rakhouri.github.io/WhatsPlaying";
+=======
+  const redirect_uri = "http://localhost:3000/";
+>>>>>>> edc9680391b4673a76816acf0a2f778071984819:final/src/pages/Lead.js
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
   const RESPONSE_TYPE = "token";
 
   const [token, setToken] = useState("");
+  const [picture, setPicture] = useState("");
   const [artists, setArtists] = useState([]);
   const [genres, setGenres] = useState([]);
   const [tracks, setTracks] = useState([]);
@@ -51,10 +56,12 @@ const Lead = () => {
     const topArtists = data.items.slice(0, 5); // Get the top 3 artists
     const artistNames = topArtists.map((artist) => artist.name); // Extract artist names
     const artistGenres = topArtists.map((artist) => artist.genres[0]); // Extract genres
-
+    
     searchTracks();
     setArtists(artistNames);
     setGenres(artistGenres);
+    // setPicture(data.items.artist[0].url);
+    setPicture(data.items[0].images[0].url);
   };
 
   const searchTracks = async () => {
@@ -76,16 +83,21 @@ const Lead = () => {
 
   const renderArtist = () => {
 
-    const artistNames = artists.map((artist) => <h1>{artist}</h1>);
-    const trackNames = tracks.map((track) => <h1>{track}</h1>);
-    const genreNames = genres.map((genre) => <h1>{genre}</h1>)
+    const artistNames = artists.map((artist) => <h2>{artist}</h2>);
+    const trackNames = tracks.map((track) => <h2>{track}</h2>);
+    const genreNames = genres.map((genre) => <h2>{genre}</h2>)
     
     if (artistNames.length > 0) {
       return (
         <>
+        <img className='topimage'src={picture}/>
+
         <div className="output">
+          <div className="Cheese">Artists: </div>
           {artistNames}
+          <div className="Cheese">Songs: </div>
           {trackNames}
+          <div className="Cheese">Genres: </div>
           {genreNames}
         </div>
         </>
@@ -126,12 +138,17 @@ const Lead = () => {
             </div>
           </>
         ) : (
+          <>
           <button className="logbutton" onClick={logout}>
             Logout
           </button>
+          <button className='top'onClick={searchArtists}>Get Top</button>
+          {renderArtist()}
+          
+          </>
+
         )}
-        <button className='top'onClick={searchArtists}>Get Top</button>
-        {renderArtist()}
+
       </div>
     </>
   );
