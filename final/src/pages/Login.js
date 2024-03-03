@@ -8,6 +8,7 @@ const LoginSchema = Yup.object().shape({
 });
 
 const Login = () => (
+  <div class="login-body">
   <Formik
     initialValues={{
       email: "",
@@ -57,6 +58,7 @@ const Login = () => (
       </div>
     )}
   </Formik>
+  </div>
 );
 
 export default Login;

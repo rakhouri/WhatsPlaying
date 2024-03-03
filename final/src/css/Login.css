@@ -7,17 +7,20 @@
     font-family: "Poppins", sans-serif;
 }
 
-body {
+.login-body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: seagreen;
+    background-image: url(../img/istockphoto-1176012574-612x612.jpg);
+    background-size: cover;
+    background-position: center;
 }
 
 .wrapper {
     width: 420px;
-    background: purple;
+    background: transparent;
+    border: 2px solid;
     color: #fff;
     border-radius: 10px;
     padding: 30px 40px;
