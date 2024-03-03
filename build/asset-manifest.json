@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/rakhouri.github.io/WhatsPlaying/static/css/main.919a5e9c.css",
-    "main.js": "/rakhouri.github.io/WhatsPlaying/static/js/main.6e4271ed.js",
+    "main.js": "/rakhouri.github.io/WhatsPlaying/static/js/main.c94b5c7f.js",
     "static/media/background.png": "/rakhouri.github.io/WhatsPlaying/static/media/background.e74af085ceacd8ad76fc.png",
     "index.html": "/rakhouri.github.io/WhatsPlaying/index.html",
     "main.919a5e9c.css.map": "/rakhouri.github.io/WhatsPlaying/static/css/main.919a5e9c.css.map",
-    "main.6e4271ed.js.map": "/rakhouri.github.io/WhatsPlaying/static/js/main.6e4271ed.js.map"
+    "main.c94b5c7f.js.map": "/rakhouri.github.io/WhatsPlaying/static/js/main.c94b5c7f.js.map"
   },
   "entrypoints": [
     "static/css/main.919a5e9c.css",
-    "static/js/main.6e4271ed.js"
+    "static/js/main.c94b5c7f.js"
   ]
 }
